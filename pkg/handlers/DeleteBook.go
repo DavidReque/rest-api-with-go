@@ -20,10 +20,10 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 			// delete the book and send a response if the book is found
 			mocks.Books = append(mocks.Books[:index], mocks.Books[index+1:]...)
 
-			w.WriteHeader(http.StatusOK) 
+			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(mocks.Books)
 			break
 		}
 	}
-	
+
 }

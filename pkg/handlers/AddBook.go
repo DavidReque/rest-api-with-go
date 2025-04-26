@@ -15,17 +15,17 @@ func AddBook(w http.ResponseWriter, r *http.Request) {
 	// read to request body
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
-	
+
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	var book models.Book
 	json.Unmarshal(body, &book)
-	
+
 	// append to the book mocks
 	book.Id = rand.Intn(100)
-	mocks.Books = append(mocks.Books, book) 
+	mocks.Books = append(mocks.Books, book)
 
 	// send a 201 created response
 	w.WriteHeader(http.StatusCreated)

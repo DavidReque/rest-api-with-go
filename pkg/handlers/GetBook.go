@@ -12,8 +12,8 @@ import (
 func GetBook(w http.ResponseWriter, r *http.Request) {
 	// read dynamic parameter from URL
 	vars := mux.Vars(r)
-	id, _ := strconv.Atoi(vars["id"]) 
-	
+	id, _ := strconv.Atoi(vars["id"])
+
 	// iterate over all the mock books and find the book with the same id
 	for _, book := range mocks.Books {
 		if book.Id == id {
